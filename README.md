@@ -6,6 +6,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This folder consist of Angular / UI (Clientside) codebase.
 
-## Client
+## WebAPI
 
 This folder consist of NodeJS/ExpressJS (Serverside) codebase.
