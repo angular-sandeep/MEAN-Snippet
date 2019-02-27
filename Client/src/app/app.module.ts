@@ -1,27 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+// angular forms modules
+import { ReactiveFormsModule } from '@angular/forms';
 
-// angular-material import
-import { CustomMaterialModule } from './CustomMaterial.module';
-import { LoginComponentComponent } from './login-component/login-component.component';
-import { LogoutComponentComponent } from './logout-component/logout-component.component';
+// importing routing module
+import { AppRoutingModule } from './app-routing.module';
+
+// importing component
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { NewUserComponent } from './new-user/new-user.component';
+import { AddPersonComponent } from './add-person/add-person.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LogoutComponent } from './logout/logout.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponentComponent,
-    LogoutComponentComponent
+    LoginComponent,
+    NewUserComponent,
+    AddPersonComponent,
+    NavbarComponent,
+    LogoutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    CustomMaterialModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
