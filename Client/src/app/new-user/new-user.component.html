@@ -1,3 +1,116 @@
-<p>
-  new-user works!
-</p>
+<h3>New User Form</h3>
+<div class="row">
+  <hr />
+  <form
+    class="col s10 offset-s1"
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <!-- Username-->
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">account_circle</i>
+        <input
+          id="username"
+          type="text"
+          formControlName="userName"
+          class="validate"
+          [ngClass]="{ 'is-invalid': submitted && f.userName.errors }"
+          required
+        />
+        <label for="username">User Name</label>
+        <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+          <div *ngIf="f.userName.errors.required">User Name is required</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">email</i>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          class="validate"
+          [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+          required
+        />
+        <label for="email">Email</label>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile no -->
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">call</i>
+        <input
+          id="mobile"
+          type="number"
+          formControlName="mobile"
+          class="validate"
+          [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }"
+          required
+        />
+        <label for="mobile">Mobile Number</label>
+        <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+          <div *ngIf="f.mobile.errors.required">Mobile No is required</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Password-->
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">security</i>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          class="validate"
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+          required
+        />
+        <label for="password">Password</label>
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Roles -->
+    <div class="input-field col s12">
+      <i class="material-icons prefix">assignment</i>
+      <select id="role" formControlName="role">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="1" selected>Admin</option>
+        <option value="2">Operator</option>
+        <option value="3">Access User</option>
+      </select>
+      <label for="role">Roles</label>
+      <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
+        <div *ngIf="f.role.errors.required">Role selection is required</div>
+      </div>
+    </div>
+
+    <br />
+    <div class="col s4 offset-s5">
+      <button
+        class="btn waves-effect waves-light"
+        [disabled]="loading"
+        type="submit"
+        name="action"
+      >
+        Register
+        <i class="material-icons left">add</i>
+      </button>
+    </div>
+  </form>
+</div>
